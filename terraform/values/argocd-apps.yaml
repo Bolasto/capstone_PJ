@@ -1,0 +1,25 @@
+applications:
+    - name: argocd-apps
+      namespace: argocd
+      destination:
+        namespace: argocd
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: github
+        repoURL: https://github.com/Bolasto/capstone_PJ.git
+        targetRevision: main
+        directory:
+          recurse: true
+          jsonnet: {}
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+
+
+projects: []
+
+applicationsets: []
+
+extensions: []
