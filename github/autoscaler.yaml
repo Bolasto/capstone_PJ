@@ -44,6 +44,4 @@ metadata:
   name: srv-act
   namespace: argocd
   annotations:
-    # Replace this with the appropriate annotation for your IAM role, 
-    # if you are using kube2iam or kiam
     iam.amazonaws.com/role: arn:aws:iam::058264418288:user/srv-act
