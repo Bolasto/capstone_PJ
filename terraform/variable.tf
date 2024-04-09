@@ -5,7 +5,6 @@ variable "AWS_REGION" {
   default     = "us-east-1"
 }
 
-
 variable "env" {
   description = "Environment variable abbreviation"
   type        = string

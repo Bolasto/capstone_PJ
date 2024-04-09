@@ -14,7 +14,7 @@ resource "helm_release" "argocd" {
   create_namespace = true
 
   values = [
-    templatefile("values/argo-value.yaml", { env = var.env })
+    templatefile("values/argocd-values.yaml", { env = var.env })
   ]
 }
 
@@ -23,7 +23,7 @@ resource "helm_release" "argocd" {
 resource "helm_release" "argocd_apps" {
   count = local.create_workloads == true ? 1 : 0
 
-  name       = "argo-cd-apps"
+  name       = "argocd-apps"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argocd-apps"
   version    = "2.0.0"
@@ -33,7 +33,7 @@ resource "helm_release" "argocd_apps" {
   create_namespace = true
 
   values = [
-    templatefile("values/apps-value.yaml", { env = var.env })
+    templatefile("values/argocd-apps.yaml", { env = var.env })
   ]
 
   depends_on = [

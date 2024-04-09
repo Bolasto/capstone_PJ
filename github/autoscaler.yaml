@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: autoscaler
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+  - repoURL: https://charts.helm.sh/stable
+    chart: cluster-autoscaler
+    targetRevision: 9.30.0
+    helm:
+      values: |         
+        autoDiscovery:
+          clusterName: capstone-pro
+          tags:
+            - k8s.io/cluster-autoscaler/enabled
+            - k8s.io/cluster-autoscaler/{{ .Values.autoDiscovery.clusterName }}
+            - kubernetes.io/cluster/{{ .Values.autoDiscovery.clusterName }}
+          roles:
+            - worker
+        
+        cloudProvider: aws
+        sslCertPath: /etc/kubernetes/pki/ca.crt
+
+        rbac:
+          create: true
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: srv-act
+  namespace: argocd
+  annotations:
+    # Replace this with the appropriate annotation for your IAM role, 
+    # if you are using kube2iam or kiam
+    iam.amazonaws.com/role: arn:aws:iam::058264418288:user/srv-act
