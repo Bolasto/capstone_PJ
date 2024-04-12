@@ -1,22 +1,21 @@
 ﻿**Capstone Project Documentation** 
 
-1\. Image Build Automation 
-
-1. **Objective**: Automate the image-building process using GitHub Actions API. 
-1. **Steps**: 
-   1. Choose an application with multiple services. 
-   1. Set up GitHub Actions workflows for building Docker images. 
-   1. Configure workflows to trigger changes to the repository. 
-   1. Test the automation process to ensure successful image builds. 
+1. Image Build Automation 
+- **Objective**: Automate the image-building process using GitHub Actions API. 
+- **Steps**: 
+   - Choose an application with multiple services. 
+   - Set up GitHub Actions workflows for building Docker images. 
+   - Configure workflows to trigger changes to the repository. 
+   - Test the automation process to ensure successful image builds. 
 2. Infrastructure as Code (IAC) Deployment 
-   1. **Objective**: Deploy a Kubernetes cluster using Infrastructure as Code methodology. 
-   1. **Steps**: 
-      1. Prerequisite: Ensure you have Terraform installed on your local machine. 
-      1. Tool Choice: Terraform as the IAC tool for Kubernetes cluster deployment. 
-      1. Infrastructure Code: Write Terraform infrastructure code ( main.tf ,  variables.tf , etc.) to define the desired state of the Kubernetes cluster. 
-      1. Provisioning: Apply the Terraform infrastructure code to provision the Kubernetes cluster. **Note**: While the cluster can be hosted on any cloud provider, this guide assumes deployment on AWS Elastic Kubernetes Service (EKS). 
-      1. Deployment Management: Install ArgoCD on the Kubernetes cluster for continuous deployment and management. 
-      1. Security Enhancement: Implement encryption for environment files or key-value pairs using Kubernetes secrets. 
+ - **Objective**: Deploy a Kubernetes cluster using Infrastructure as Code methodology.
+ - **Steps**: 
+     - Prerequisite: Ensure you have Terraform installed on your local machine. 
+     - Tool Choice: Terraform as the IAC tool for Kubernetes cluster deployment. 
+     - Infrastructure Code: Write Terraform infrastructure code ( main.tf ,  variables.tf , etc.) to define the desired state of the Kubernetes cluster. 
+     - Provisioning: Apply the Terraform infrastructure code to provision the Kubernetes cluster. **Note**: While the cluster can be hosted on any cloud provider, this guide assumes deployment on AWS Elastic Kubernetes Service (EKS). 
+     - Deployment Management: Install ArgoCD on the Kubernetes cluster for continuous deployment and management. 
+     - Security Enhancement: Implement encryption for environment files or key-value pairs using Kubernetes secrets. 
 3. Monitoring and Observability Deployment 
 - **Objective**: Deploy applications for monitoring metrics and logs. 
 - **Steps**: 
