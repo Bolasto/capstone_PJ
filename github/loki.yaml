@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://grafana.github.io/helm-charts
     chart: loki
-    targetRevision: 5.19.0
+    targetRevision: 5.14.0
     helm:
       values: |
         loki:
@@ -61,7 +61,7 @@ spec:
           serviceMonitor:
             enabled: false
           selfMonitoring:
-            enabled: true
+            enabled: false
             lokiCanary:
               enabled: false
             grafanaAgent:
