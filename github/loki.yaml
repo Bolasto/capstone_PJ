@@ -61,7 +61,7 @@ spec:
           serviceMonitor:
             enabled: false
           selfMonitoring:
-            enabled: false
+            enabled: true
             lokiCanary:
               enabled: false
             grafanaAgent:
