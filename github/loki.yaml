@@ -61,11 +61,11 @@ spec:
           serviceMonitor:
             enabled: false
           selfMonitoring:
-            enabled: false
+            enabled: true
             lokiCanary:
               enabled: false
             grafanaAgent:
-              installOperator: false
+              installOperator: true
         serviceAccount:
           create: true
           annotations:
