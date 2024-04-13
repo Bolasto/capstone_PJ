@@ -51,6 +51,21 @@ spec:
            enabled: true
            minReplicas: 1
            maxReplicas: 2
+        monitoring:
+          dashboards:
+            enabled: false
+          rules:
+            enabled: false
+          alerts:
+            enabled: false
+          serviceMonitor:
+            enabled: false
+          selfMonitoring:
+            enabled: false
+            lokiCanary:
+              enabled: false
+            grafanaAgent:
+              installOperator: false
         serviceAccount:
           create: true
           annotations:
